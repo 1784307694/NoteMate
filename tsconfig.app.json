@@ -1,0 +1,23 @@
+{
+  // 继承的配置文件
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  // 哪些文件需要编译
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  // 哪些文件不需要编译
+  "exclude": ["src/**/__tests__/*"],
+  // 编译选项
+  "compilerOptions": {
+    // 增量编译
+    "incremental": true,
+    // 编译信息文件
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    // 路径别名
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "types": ["element-plus/global"],
+    "composite": true,
+    "baseUrl": ".",
+    "noImplicitAny": false
+  }
+}

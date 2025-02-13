@@ -1,0 +1,25 @@
+version: "3"
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - app-network
+    depends_on:
+      - backend-api
+
+  # 这里需要根据实际后端服务配置进行修改
+  backend-api:
+    image: your-backend-image # 替换为实际的后端镜像
+    networks:
+      - app-network
+    environment:
+      - NODE_ENV=production
+      # 添加其他必要的环境变量
+
+networks:
+  app-network:
+    driver: bridge
